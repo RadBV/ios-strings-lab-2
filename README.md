@@ -9,7 +9,11 @@ You are given a string stored in variable `problem`. Write code so that you prin
 ```swift
 var problem = "split this string into words and print them on separate lines"
 
-// Your code
+let problemArray = problem.split(separator: " ")
+
+for word in problemArray{
+print(word)
+}
 ```
 
 Example
@@ -40,6 +44,22 @@ Given a string `testString` create a new variable called `condensedString` that 
 ```swift
 let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
+
+
+let testStringArray = testString.components(separatedBy:" ")
+var emptyArray =  [String]()
+var empty = ""
+
+for element in testStringArray {
+    if element == empty{
+        continue
+}
+    emptyArray.append(element)
+}
+
+for i in emptyArray {
+    print(i + " ", terminator: "")
+}
 ```
 
 
@@ -53,6 +73,14 @@ Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
 
+```swift
+let stringStuff = "wow cool nice wow awesome"
+var stringStuffArray = stringStuff.components(separatedBy: " ")
+
+for word in stringStuffArray.reversed(){
+print(word, terminator: " ")
+}
+```
 
 ## Question 4
 
@@ -63,6 +91,22 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+
+```swift
+let stringStuff = "danaerys dad cat civic bottle"
+var stringStuffArray = stringStuff.components(separatedBy: " ")
+var container1 = 0
+var container2 = ""
+
+for word in stringStuffArray{
+    container2.append(word)
+    if String(container2.reversed()) == container2{
+        container1 += 1
+}
+    container2 = ""
+}
+print(container1)
+```
 
 
 ## Question 5
@@ -82,6 +126,25 @@ Example:
 Sample Input: `"PPALLP"`
 
 Sample Output: `true`
+
+```swift
+let record = "PPALLP"
+var absent = "A"
+var aContainer = 0
+var recordArray = Array(record)
+
+for i in recordArray{
+    if String(i) == absent {
+        aContainer += 1
+}
+}
+
+if record.contains("LLL") || aContainer > 1 {
+    print(false)
+} else {
+    print(true)
+}
+```
 
 
 ## Question 6
